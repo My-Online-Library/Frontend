@@ -1,0 +1,19 @@
+<app-list [list]="authors">
+    <ng-container empty>
+        <div><b>No hay autores disponibles.</b></div>
+    </ng-container>
+<ng-container content>
+    <div *ngFor="let author of authors; let index = index" class="container">
+        <div>
+            <h2>{{ index + 1 }} - {{ author.name }}
+                <button style="margin-left: 1rem" (click)="remover(index)">
+                    Remover
+                </button>
+            </h2>
+        </div>
+        <div>
+            {{ author.dateOfBirth | date: "dd-MMMM-yyyy" | uppercase }}
+        </div>
+    </div>
+</ng-container>
+</app-list>
